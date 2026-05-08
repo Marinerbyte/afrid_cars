@@ -4,173 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afridi Cabs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- 👇 Yahan se Style (CSS) shuru 👇 -->
     <style>
-        :root { --primary: #ff6b6b; --dark: #2d3436; --light: #f9f9f9; --wa: #25D366; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--light); color: var(--dark); }
+        /* LUXURY MINIMALIST DESIGN */
+        :root { --black: #111; --dark-gray: #222; --gray: #888; --light: #f4f4f4; --wa: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #fff; color: var(--black); }
 
-        /* Hero Section (Jabardast Glassmorphism Look) */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200') center/cover;
-            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;
-        }
-        .profile-pic { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); box-shadow: 0 0 20px rgba(255,107,107,0.5); margin-bottom: 20px; animation: pop 1s ease; }
-        h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .tagline { font-size: 1.2rem; margin-bottom: 15px; opacity: 0.9; }
+        /* Hero */
+        .hero { padding: 60px 20px; text-align: center; background: var(--light); border-bottom: 1px solid #eaeaea; }
+        .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+        .tagline { color: var(--gray); font-size: 1.1rem; margin-bottom: 20px; }
+        .status { display: inline-block; background: #fff; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #eaeaea;}
         
-        /* Live Status Badge */
-        .status-badge { display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 30px; font-weight: 600; font-size: 1rem; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); margin-bottom: 30px; }
-        .status-dot { color: #00ff88; margin-right: 5px; animation: blink 1.5s infinite; }
-
-        /* Buttons */
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; color: white; display: flex; align-items: center; gap: 10px; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .btn-wa { background: var(--wa); }
-        .btn-call { background: var(--primary); }
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; transition: 0.3s; }
+        .btn-black { background: var(--black); color: #fff; }
+        .btn-black:hover { background: var(--dark-gray); }
+        .btn-outline { border: 2px solid var(--black); color: var(--black); }
+        .btn-outline:hover { background: var(--light); }
 
         /* Sections */
-        .section { padding: 80px 5%; text-align: center; }
-        .section h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 40px; position: relative; display: inline-block; }
-        .section h2::after { content: ''; width: 50px; height: 4px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 5px; }
+        .section { padding: 80px 5%; max-width: 1200px; margin: auto; }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 40px; text-align: center; letter-spacing: -0.5px; }
 
-        /* Cars & Gallery Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
-        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transition: 0.4s; }
-        .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-info { padding: 25px; text-align: left; }
-        .card-info h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .badge { background: var(--light); padding: 8px 15px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; margin-right: 5px; color: #555; }
-        .price { display: block; margin-top: 20px; font-size: 1.3rem; color: var(--primary); font-weight: bold; }
+        /* Offers Section */
+        #offersSection { display: none; background: #fdfdfd; border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 60px 5%; }
+        .offer-grid { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; }
+        .offer-card { min-width: 280px; background: var(--black); color: white; padding: 25px; border-radius: 12px; }
+        .offer-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #ffdb58; } /* Subtle Gold */
+
+        /* Cars Grid (Deep Details) */
+        .car-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .car-card { background: #fff; border: 1px solid #eaeaea; border-radius: 12px; overflow: hidden; transition: 0.3s; }
+        .car-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
+        .car-card img { width: 100%; height: 240px; object-fit: cover; }
+        .car-body { padding: 25px; }
+        .car-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .car-head h3 { font-size: 1.5rem; font-weight: 700; }
+        .car-price { font-weight: 700; font-size: 1.1rem; color: var(--black); }
+        
+        .car-specs { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .spec-badge { background: var(--light); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: var(--dark-gray); }
+        .car-desc { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; padding-top: 15px; border-top: 1px solid #eaeaea; }
+        
+        .btn-book { display: block; text-align: center; width: 100%; background: var(--wa); color: white; padding: 12px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-book:hover { background: #20b858; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
 
         /* Contact Details */
-        .contact-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; text-align: left; font-size: 1.1rem; }
-        .contact-box p { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .contact-box { background: var(--light); padding: 40px; border-radius: 12px; text-align: center; }
+        .contact-box p { font-size: 1.1rem; margin-bottom: 15px; color: var(--dark-gray); }
+        .contact-box a { color: var(--black); font-weight: 700; text-decoration: none; }
 
-        /* Floating WhatsApp */
-        .float-wa { position: fixed; bottom: 20px; right: 20px; background: var(--wa); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; text-decoration: none; box-shadow: 0 5px 15px rgba(37,211,102,0.4); z-index: 100; transition: 0.3s; }
-        .float-wa:hover { transform: scale(1.1); }
-
-        /* Animations */
-        @keyframes pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @media(max-width: 600px) { h1 { font-size: 2.5rem; } .btn { width: 100%; justify-content: center; } }
+        @media(max-width: 600px) { h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <img id="profilePic" src="https://via.placeholder.com/150" alt="Profile" class="profile-pic">
-        <h1 id="heroTitle">Loading...</h1>
-        <p id="tagline" class="tagline">Please wait...</p>
-        
-        <div class="status-badge">
-            <span class="status-dot">●</span> <span id="statusMessage">Loading status...</span>
-        </div>
-
+        <img id="profilePic" src="" alt="Profile" class="profile-pic" style="display:none;">
+        <h1 id="heroTitle">Afridi Cabs</h1>
+        <p id="tagline" class="tagline"></p>
+        <div class="status" id="statusMessage"></div>
         <div class="btn-group">
-            <a href="#" id="waLink1" class="btn btn-wa">💬 Book via WhatsApp</a>
-            <a href="#" id="callLink" class="btn btn-call">📞 Call Now</a>
+            <a href="#" id="waLink1" class="btn btn-black">Book via WhatsApp</a>
+            <a href="#" id="callLink" class="btn btn-outline">Call Us</a>
         </div>
+    </section>
+
+    <!-- Offers (Yeh tabhi dikhega jab admin panel me offer daloge) -->
+    <section id="offersSection">
+        <h2 class="section-title">Exclusive Offers</h2>
+        <div class="offer-grid" id="offerList"></div>
     </section>
 
     <!-- Cars Section -->
     <section class="section" id="cars">
-        <h2>My Fleet 🚘</h2>
-        <div class="grid" id="carList"></div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" style="background: white;">
-        <h2>About Us 👨‍✈️</h2>
-        <p id="aboutText" style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8; color: #555;"></p>
+        <h2 class="section-title">Our Fleet</h2>
+        <div class="car-grid" id="carList"></div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="section">
-        <h2>Gallery 📸</h2>
-        <div class="grid" id="galleryList"></div>
+    <section class="section" style="background: var(--light);">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid" id="galleryList"></div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & About -->
     <section class="section">
-        <h2>Contact Details ☎️</h2>
+        <h2 class="section-title">Contact Information</h2>
         <div class="contact-box">
-            <p><strong>📍 Location:</strong> <span id="locationText">Loading...</span></p>
-            <p><strong>📞 Phone:</strong> <span id="phoneText">Loading...</span></p>
-            <p style="border:none;"><strong>💬 WhatsApp:</strong> <span id="waText">Loading...</span></p>
+            <p id="aboutText" style="margin-bottom: 30px; font-style: italic; color: var(--gray);"></p>
+            <p>📍 Location: <span id="locationText"></span></p>
+            <p>📞 Call: <a href="#" id="phoneTextLink"><span id="phoneText"></span></a></p>
+            <p>💬 WhatsApp: <a href="#" id="waTextLink"><span id="waText"></span></a></p>
         </div>
     </section>
 
-    <a href="#" id="waFloat" class="float-wa">💬</a>
-
-    <!-- 👇 Yahan se Script (JavaScript) shuru 👇 -->
     <script>
-        // Data Fetch karne ka Magic Tool 🪄
-        const updateText = (id, text) => { if(document.getElementById(id)) document.getElementById(id).innerText = text; }
+        const setTxt = (id, txt) => { if(document.getElementById(id) && txt) document.getElementById(id).innerText = txt; }
+        let waUrlGlobal = "";
 
-        // 1. Settings Fetch (Profile, Status, Contacts)
-        fetch('data/settings.json').then(res => res.json()).then(data => {
-            const s = data.settings;
-            // Profile & Texts
-            if(s.profilePic) document.getElementById('profilePic').src = s.profilePic;
-            updateText('heroTitle', s.heroTitle);
-            updateText('tagline', s.tagline);
-            updateText('statusMessage', s.statusMessage);
-            updateText('aboutText', s.about);
-            updateText('locationText', s.location);
-            updateText('phoneText', s.displayPhone);
-            updateText('waText', s.displayWa);
-
-            // Action Links
-            const waUrl = `https://wa.me/${s.waNumber}?text=Hi Afridi, I want to book a cab.`;
-            document.getElementById('waLink1').href = waUrl;
-            document.getElementById('waFloat').href = waUrl;
+        // 1. Fetch Settings
+        fetch('data/settings.json').then(r => r.json()).then(d => {
+            const s = d.settings;
+            if(s.profilePic) { document.getElementById('profilePic').src = s.profilePic; document.getElementById('profilePic').style.display = 'inline-block'; }
+            setTxt('heroTitle', s.heroTitle); setTxt('tagline', s.tagline); setTxt('statusMessage', s.statusMessage);
+            setTxt('aboutText', s.about); setTxt('locationText', s.location); setTxt('phoneText', s.displayPhone); setTxt('waText', s.displayWa);
+            
+            waUrlGlobal = `https://wa.me/${s.waNumber}?text=Hello, I want to book a cab.`;
+            document.getElementById('waLink1').href = waUrlGlobal;
+            document.getElementById('waTextLink').href = waUrlGlobal;
             document.getElementById('callLink').href = `tel:${s.displayPhone}`;
+            document.getElementById('phoneTextLink').href = `tel:${s.displayPhone}`;
         });
 
-        // 2. Cars Fetch
-        fetch('data/cars.json').then(res => res.json()).then(data => {
-            const carList = document.getElementById('carList');
-            if(data.car_items) {
-                carList.innerHTML = data.car_items.map(car => `
-                    <div class="card">
+        // 2. Fetch Offers
+        fetch('data/offers.json').then(r => r.ok ? r.json() : null).then(d => {
+            if(d && d.offer_items && d.offer_items.length > 0) {
+                document.getElementById('offersSection').style.display = 'block';
+                document.getElementById('offerList').innerHTML = d.offer_items.map(o => `
+                    <div class="offer-card">
+                        <h3>🎟️ ${o.title}</h3>
+                        <p>${o.details}</p>
+                    </div>
+                `).join('');
+            }
+        }).catch(e => console.log("No offers right now."));
+
+        // 3. Fetch Cars (Deep Details Setup)
+        fetch('data/cars.json').then(r => r.json()).then(d => {
+            if(d.car_items) {
+                document.getElementById('carList').innerHTML = d.car_items.map(car => `
+                    <div class="car-card">
                         <img src="${car.image}" alt="${car.name}">
-                        <div class="card-info">
-                            <h3>${car.name}</h3>
-                            <span class="badge">💺 ${car.seats} Seats</span>
-                            <span class="badge">❄️ ${car.ac}</span>
-                            <span class="price">${car.price}</span>
+                        <div class="car-body">
+                            <div class="car-head">
+                                <h3>${car.name}</h3>
+                                <span class="car-price">${car.price}</span>
+                            </div>
+                            <div class="car-specs">
+                                <span class="spec-badge">💺 ${car.seats} Seats</span>
+                                <span class="spec-badge">❄️ ${car.ac}</span>
+                                <span class="spec-badge">🧳 ${car.luggage || 'Space Available'}</span>
+                            </div>
+                            <p class="car-desc">${car.description || 'Comfortable and clean vehicle ready for your trip.'}</p>
+                            <a href="${waUrlGlobal}" class="btn-book">Book This Car</a>
                         </div>
                     </div>
                 `).join('');
             }
         });
 
-        // 3. Gallery Fetch
-        fetch('data/gallery.json').then(res => res.json()).then(data => {
-            const galleryList = document.getElementById('galleryList');
-            if(data.gallery_items) {
-                galleryList.innerHTML = data.gallery_items.map(img => `
-                    <div class="card">
-                        <img src="${img.image}" alt="${img.caption}" style="height: 250px;">
-                    </div>
+        // 4. Fetch Gallery
+        fetch('data/gallery.json').then(r => r.json()).then(d => {
+            if(d.gallery_items) {
+                document.getElementById('galleryList').innerHTML = d.gallery_items.map(img => `
+                    <img src="${img.image}" alt="Cab Gallery">
                 `).join('');
             }
         });
-
-        // Netlify Admin Login Redirect
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
-            });
-        }
     </script>
 </body>
 </html>
